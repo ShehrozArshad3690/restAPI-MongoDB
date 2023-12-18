@@ -3,9 +3,12 @@ const bodyParser = require('body-parser');
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const studentRouter= require('./routers/studentRouter');
+const dotenv = require('dotenv')
 
+
+dotenv.config()
 const app = express();
-const dbURI ="mongodb+srv://Shehroz29:DE7OhqpZz0jUP6TV@nodetutes.pqnqv05.mongodb.net/StudentDB";
+const dbURI =process?.env?.dbURI;
 
 mongoose
 .connect(dbURI)
